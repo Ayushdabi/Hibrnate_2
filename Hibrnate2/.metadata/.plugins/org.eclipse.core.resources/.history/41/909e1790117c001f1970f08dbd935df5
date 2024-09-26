@@ -1,0 +1,24 @@
+package com.rays.curd;
+
+import java.util.Date;
+
+import com.rays.user.UserDTO;
+import com.rays.user.UserModel;
+
+public class TestUpdate {
+	public static void main(String[] args) {
+
+		UserDTO dto = new UserDTO();
+		dto.setId(2);
+		dto.setFirstName("abc");
+		dto.setLastName("abc");
+		dto.setLoginId("abc@gmail.com");
+		dto.setPassword("123");
+		dto.setDob(new Date());
+		dto.setAddress("indore");
+
+		UserModel model = new UserModel();
+		model.update(dto);
+	}
+
+}

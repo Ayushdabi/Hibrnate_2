@@ -1,0 +1,19 @@
+package com.rays.curd;
+
+import com.rays.user.UserDTO;
+import com.rays.user.UserModel;
+
+public class TestDelete {
+	public static void main(String[] args) {
+		
+		
+		UserDTO dto = new UserDTO();
+		dto.setId(1);
+		UserModel model = new UserModel();
+		model.delete(dto);
+		
+	
+	
+	}
+
+}

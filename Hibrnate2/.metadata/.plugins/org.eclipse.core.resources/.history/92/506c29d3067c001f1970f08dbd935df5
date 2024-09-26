@@ -1,0 +1,77 @@
+
+package com.rays.user;
+
+import java.util.List;
+
+import org.hibernate.Criteria;
+import org.hibernate.Query;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.cfg.Configuration;
+import org.hibernate.criterion.Restrictions;
+
+public class UserModel {
+
+	public void add(UserDTO dto) {
+
+		SessionFactory sf = new Configuration().configure().buildSessionFactory();
+
+		Session session = sf.openSession();
+
+		Transaction tx = session.beginTransaction();
+
+		session.save(dto);
+
+		tx.commit();
+
+		session.close();
+
+	}
+
+	public void update(UserDTO dto) {
+
+		SessionFactory sf = new Configuration().configure().buildSessionFactory();
+
+		Session session = sf.openSession();
+
+		Transaction tx = session.beginTransaction();
+
+		session.update(dto);
+
+		tx.commit();
+
+		session.close();
+
+	}
+
+	public void delete(UserDTO dto) {
+
+		SessionFactory sf = new Configuration().configure().buildSessionFactory();
+
+		Session session = sf.openSession();
+
+		Transaction tx = session.beginTransaction();
+
+		session.delete(dto);
+
+		tx.commit();
+
+		session.close();
+
+	}
+
+	public UserDTO findbypk(int pk) {
+		SessionFactory sf = new Configuration().configure().buildSessionFactory();
+
+		Session session = sf.openSession();
+		Transaction tx = session.beginTransaction();
+
+		UserDTO Dto = (UserDTO) session.get(UserDTO.class, pk);
+
+		session.close();
+		return Dto;
+
+	}
+
+}

@@ -1,0 +1,31 @@
+package com.rays.curd;
+
+import org.hibernate.SessionFactory;
+
+import com.rays.user.UserDTO;
+import com.rays.user.UserModel;
+
+import net.sf.ehcache.config.Configuration;
+
+public class TestDelete {
+	public static void main(String[] args) {
+		
+		
+		UserDTO dto = new UserDTO();
+		dto.setId(3);
+
+		SessionFactory sf = new Configuration().configure().buildSessionFactory();
+
+		Session session = sf.openSession();
+
+		Transaction tx = session.beginTransaction();
+
+		session.delete(dto);
+
+		tx.commit();
+
+		session.close();	
+	
+	}
+
+}
